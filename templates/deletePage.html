@@ -1,0 +1,22 @@
+{% extends "patientBase.html" %}
+{% block title %}Library Loan System - Create User{% endblock %}
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+
+<div class="container mt-5">
+    <h1 class="display-4">Delete account</h1>
+    <p>Enter your email and password to confirm account deletion</p>
+    <form method="POST" action="">
+        <div class="form-group">
+            {{ render_field(form.email, class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ render_field(form.password, class="form-control") }}
+        </div>
+
+
+        <input type="submit" value="delete" class="btn btn-danger m-2"/>
+    </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "patientBase.html" %}
+{% block title %}PR-Care Retrieve Bookings{% endblock %}
+
+{% block content %}
+<h1 class="display-4">Manage Your Own Bookings</h1>
+
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Date</th>
+        <th>Time Slot</th>
+        <th>Remarks</th>
+        <th>Confirmation</th>
+        <th>Doctor</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+         {% for result in results %}
+              <tr>
+            <td>{{ result[1] }}</td>
+            <td>{{ result[2] }}</td>
+            <td>{{ result[3] }}</td>
+            <td>{{ result[4] }}</td>
+            <td>{{ result[5] }}</td>
+            <td>{{ result[6] }}</td>
+            <td>{{ result[7] }}</td>
+            <td>{{ result[8] }}</td>
+                  <td><a href="/updateUser/{{  result[0] }}/{{ data[0][0] }}" class="btn btn-warning">Update</a></td>
+        <td>
+          <form action="{{url_for('delete_user', id=result[0] , pid=data[0][0] )}}" method="POST">
+
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal_{{ result[0] }}">
+  Delete
+</button>
+
+<!-- The Modal -->
+<div class="modal" id="myModal_{{ result[0] }}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Delete Confirmation</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Are you sure you want to delete your session on {{ result[4] }} at {{ result[5] }}?
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <input type="submit" value="Delete" class="btn btn-danger">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+          </form>
+        </td>
+              </tr>
+        {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+{% endblock %}

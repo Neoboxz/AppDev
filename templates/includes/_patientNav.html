@@ -1,0 +1,92 @@
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home">PR-Health</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/createBooking/{{ data[0][0] }}">Book An Appointment!</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/retrievePatientsBooking/{{ data[0][0] }}">Check your Appointment!</a>
+        </li>
+      </ul>
+
+
+    <div class="d-flex">      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+      <span>{{ data[0][1] }} {{ data[0][2] }}</span><span class="navbar-toggler-icon"></span>
+  </button></div>
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="offcanvas offcanvas-end" id="demo">
+  <div class="offcanvas-header">
+    <h1 class="offcanvas-title">{{ data[0][1] }} {{ data[0][2] }}</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link" href="/updatePage/{{ data[0][0] }}">Edit Profile</a>
+          </li>
+
+
+        </ul>
+          <button type="button" class="btn btn-danger position-absolute bottom-0 end-0 " data-bs-toggle="modal" data-bs-target="#exampleModal1">
+            Delete Account?
+          </button>
+
+          <button type="button" class="btn btn-danger mt-5 " data-bs-toggle="modal" data-bs-target="#exampleModal">
+            logOut
+          </button>
+  </div>
+</div>
+
+  </div>
+
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       Are you sure?
+      </div>
+      <div class="modal-footer">
+        <a href="/deletePage/{{ data[0][0] }}" class="btn btn-primary" role="button" >YES</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       Are you sure?
+      </div>
+      <div class="modal-footer">
+        <a href="/" class="btn btn-primary" role="button" >YES</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .modal-backdrop {
+  z-index: -1;
+}
+</style>
+<br>
